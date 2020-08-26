@@ -43,7 +43,8 @@ String iconSearch = "assets/icons/icon_search.svg";
 String iconMessenger = "assets/icons/icon_messenger.svg";
 
 String iconHome = "assets/icons/icon_home.svg";
+String iconHomeDark = "assets/icons/icon_home_dark.svg";
 String iconVideo = "assets/icons/icon_video.svg";
 String iconAccount = "assets/icons/icon_account.svg";
-String iconMotification = "assets/icons/icon_notification.svg";
+String iconNotification = "assets/icons/icon_notification.svg";
 String iconMenu = "assets/icons/icon_menu.svg";
