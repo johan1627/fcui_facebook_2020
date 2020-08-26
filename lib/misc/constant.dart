@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 // Text Colors
 Color primaryColor = Color(0xFF4267B2);
 Color greyDark = Color(0xFF898F9C);
-Color greyLight = Color(0xFFf7f7f7);
+Color greyLight = Color(0xFFECEFF1);
 
 Color greenColor = Color(0xFF2E7D32);
 
-Color whiteColor = Color(0xFFEFEFEF);
+Color whiteColor = Color(0xFFFFFFFF);
 Color blackColor = Color(0xFF262626);
 
 // Text Styles
@@ -37,6 +37,8 @@ TextStyle footFont = TextStyle(
 );
 
 // Icons
+String logoFacebook = "assets/icons/logo_facebook.svg";
+
 String iconSearch = "assets/icons/icon_search.svg";
 String iconMessenger = "assets/icons/icon_messenger.svg";
 
