@@ -7,6 +7,9 @@ Color greyLight = Color(0xFFECEFF1);
 
 Color greenColor = Color(0xFF2E7D32);
 
+Color blueDark = Color(0xFF1976D2);
+Color blueLight = Color(0xFFE1F5FE);
+
 Color whiteColor = Color(0xFFFFFFFF);
 Color blackColor = Color(0xFF262626);
 
@@ -26,14 +29,19 @@ TextStyle h3 = TextStyle(
   fontSize: 16.0,
 );
 
-TextStyle lableFont = TextStyle(
+TextStyle h4 = TextStyle(
   fontFamily: "Roboto",
   fontSize: 14.0,
 );
 
-TextStyle footFont = TextStyle(
+TextStyle lableFont = TextStyle(
   fontFamily: "Roboto",
   fontSize: 12.0,
+);
+
+TextStyle footFont = TextStyle(
+  fontFamily: "Roboto",
+  fontSize: 10.0,
 );
 
 // Icons

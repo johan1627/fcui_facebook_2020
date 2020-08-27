@@ -17,83 +17,219 @@ class _HomePageState extends State<HomePage> {
           children: [
             Container(
               color: whiteColor,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    SvgPicture.asset(
-                      logoFacebook,
-                      color: primaryColor,
-                      width: MediaQuery.of(context).size.width / 3.5,
-                    ),
-                    Row(
-                      children: [
-                        iconTop(
-                            iconCus: iconSearch,
-                            functionCus: () {
-                              print("iconSearch");
-                            }),
-                        SizedBox(width: 10.0),
-                        iconTop(
-                            iconCus: iconMessenger,
-                            functionCus: () {
-                              print("iconMessenger");
-                            }),
-                      ],
-                    ),
-                  ],
-                ),
+              child: Column(
+                children: [
+                  bannerSatu(context),
+                  bannerDua(),
+                ],
               ),
             ),
-            Container(
-              color: whiteColor,
-              child: Padding(
-                padding: const EdgeInsets.only(
-                  left: 20,
-                  right: 20,
-                  bottom: 2,
-                  top: 2,
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    tapBarmenu(icon: iconHomeDark, colorC: primaryColor),
-                    tapBarmenu(icon: iconVideo),
-                    tapBarmenu(icon: iconAccount),
-                    tapBarmenu(icon: iconNotification),
-                    tapBarmenu(icon: iconMenu),
-                  ],
-                ),
-              ),
-            ),
-            //./assets/images/profile_01.jpg
-            SingleChildScrollView(
-              child: Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      height: 50.0,
-                      decoration: BoxDecoration(
-                        color: greyLight,
-                        shape: BoxShape.circle,
-                      ),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(40.0),
-                        child: Image.asset(
-                          "./assets/images/profile_01.jpg",
-                          fit: BoxFit.cover,
+            Column(
+              children: [
+                statusYourMind(),
+                Container(
+                  color: whiteColor,
+                  child: Column(
+                    children: [
+                      SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          children: [
+                            userStory(),
+                            userStory(),
+                            userStory(),
+                            userStory(),
+                          ],
                         ),
                       ),
+                      buttonMore(),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Container userStory() {
+    return Container(
+      height: 200.0,
+      child: AspectRatio(
+        aspectRatio: 1.5 / 2,
+        child: Container(
+          margin: EdgeInsets.only(right: 10),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            image: DecorationImage(
+              image: AssetImage("./assets/images/feed-image-01.jpg"),
+              fit: BoxFit.cover,
+            ),
+          ),
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              gradient: LinearGradient(begin: Alignment.bottomCenter, colors: [
+                blackColor.withOpacity(.8),
+                blackColor.withOpacity(.4),
+              ]),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  margin: EdgeInsets.only(top: 10.0, left: 10.0),
+                  height: 40,
+                  width: 40,
+                  decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      border: Border.all(
+                        color: whiteColor,
+                        width: 2.0,
+                      ),
+                      image: DecorationImage(
+                        image: AssetImage("./assets/images/profile_01.jpg"),
+                        fit: BoxFit.cover,
+                      )),
+                ),
+                Container(
+                  margin: EdgeInsets.only(bottom: 10.0, left: 10.0),
+                  child: Text(
+                    "Siti Fatimah",
+                    style: h4.copyWith(
+                      color: whiteColor,
                     ),
-                    Text("data"),
-                  ],
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Row buttonMore() {
+    return Row(
+      children: [
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+            child: RaisedButton(
+              onPressed: () {},
+              color: blueLight,
+              elevation: 0,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(6.0),
+              ),
+              child: Text(
+                "Show More",
+                style: h3.copyWith(
+                  color: blueDark,
+                ),
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Container statusYourMind() {
+    return Container(
+      color: whiteColor,
+      child: Padding(
+        padding: const EdgeInsets.only(top: 4, bottom: 4, left: 8, right: 8),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Container(
+              height: 40.0,
+              decoration: BoxDecoration(
+                color: greyLight,
+                shape: BoxShape.circle,
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(40.0),
+                child: Image.asset(
+                  "./assets/images/profile_01.jpg",
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            SizedBox(width: 10.0),
+            Expanded(
+              child: OutlineButton(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30.0)),
+                color: whiteColor,
+                onPressed: () {},
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "What's on your mind?",
+                    style: h4,
+                  ),
                 ),
               ),
             )
           ],
         ),
+      ),
+    );
+  }
+
+  Padding bannerDua() {
+    return Padding(
+      padding: const EdgeInsets.only(
+        left: 20,
+        right: 20,
+        bottom: 2,
+        top: 2,
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          tapBarmenu(icon: iconHomeDark, colorC: primaryColor),
+          tapBarmenu(icon: iconVideo),
+          tapBarmenu(icon: iconAccount),
+          tapBarmenu(icon: iconNotification),
+          tapBarmenu(icon: iconMenu),
+        ],
+      ),
+    );
+  }
+
+  Padding bannerSatu(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          SvgPicture.asset(
+            logoFacebook,
+            color: primaryColor,
+            width: MediaQuery.of(context).size.width / 3.5,
+          ),
+          Row(
+            children: [
+              iconTop(
+                  iconCus: iconSearch,
+                  functionCus: () {
+                    print("iconSearch");
+                  }),
+              SizedBox(width: 10.0),
+              iconTop(
+                  iconCus: iconMessenger,
+                  functionCus: () {
+                    print("iconMessenger");
+                  }),
+            ],
+          ),
+        ],
       ),
     );
   }
