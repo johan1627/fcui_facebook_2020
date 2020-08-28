@@ -21,6 +21,7 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   bannerSatu(context),
                   bannerDua(),
+                  underLineActive(context),
                 ],
               ),
             ),
@@ -40,58 +41,65 @@ class _HomePageState extends State<HomePage> {
                             scrollDirection: Axis.horizontal,
                             child: Row(
                               children: [
-                                userStory(),
-                                userStory(),
-                                userStory(),
-                                userStory(),
+                                userStory(
+                                  storyName: "Siti Fatimah",
+                                  storyPhoto: "assets/images/profile_01.jpg",
+                                  storyImage: "assets/images/feed-image-01.jpg",
+                                ),
+                                userStory(
+                                  storyName: "Latifah",
+                                  storyPhoto: "assets/images/profile_02.jpg",
+                                  storyImage: "assets/images/feed-image-02.jpg",
+                                ),
+                                userStory(
+                                  storyName: "Muhammad Khadafi",
+                                  storyPhoto: "assets/images/profile_03.jpg",
+                                  storyImage: "assets/images/feed-image-03.jpg",
+                                ),
+                                userStory(
+                                  storyName: "Safeeya",
+                                  storyPhoto: "assets/images/profile_04.jpg",
+                                  storyImage: "assets/images/feed-image-04.jpg",
+                                ),
                               ],
                             ),
                           ),
-                          buttonMore(),
+                          SizedBox(height: 10.0),
+                          // buttonMore(),
                         ],
                       ),
                     ),
-                    Container(
-                      color: whiteColor,
-                      // Feed
-                      child: ListTile(
-                        leading: Container(
-                          height: 40.0,
-                          decoration: BoxDecoration(
-                            color: greyLight,
-                            shape: BoxShape.circle,
-                          ),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(40.0),
-                            child: Image.asset(
-                              "./assets/images/profile_01.jpg",
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
-                        title: Text("Siti Fatimah",
-                            style: h3.copyWith(
-                              fontWeight: FontWeight.w700,
-                            )),
-                        // subtitle: Row(
-                        //   mainAxisAlignment: MainAxisAlignment.start,
-                        //   children: [
-                        //     Text("5 minutes", style: h4),
-                        //     SizedBox(width: 3.0),
-                        //     Text("."),
-                        //     SizedBox(width: 3.0),
-                        //     SvgPicture.asset(
-                        //       iconGlobe,
-                        //       width: 14.0,
-                        //       color: greyDark,
-                        //     )
-                        //   ],
-                        // ),
-                        // trailing: Align(
-                        //   alignment: Alignment.topRight,
-                        //   child: Icon(Icons.more_horiz),
-                        // ),
-                      ),
+                    SizedBox(height: 8.0),
+                    feedItem(
+                      feedPhoto: "assets/images/profile_03.jpg",
+                      feedName: "Muhammad Khadafi",
+                      feedText:
+                          "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from de Finibus Bonorum et Malorum by Cicero are also reproduced in their exact original form, accompanied by English",
+                      feedImage: "assets/images/feed-image-03.jpg",
+                    ),
+                    SizedBox(height: 8.0),
+                    feedItem(
+                      feedPhoto: "assets/images/profile_02.jpg",
+                      feedName: "Latifah",
+                      feedText:
+                          "All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structurese",
+                      feedImage: "assets/images/feed-image-02.jpg",
+                    ),
+                    SizedBox(height: 8.0),
+                    feedItem(
+                      feedPhoto: "assets/images/profile_01.jpg",
+                      feedName: "Siti Fatimah",
+                      feedText:
+                          "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum",
+                      feedImage: "assets/images/feed-image-01.jpg",
+                    ),
+                    SizedBox(height: 8.0),
+                    feedItem(
+                      feedPhoto: "assets/images/profile_04.jpg",
+                      feedName: "Safeeya Anggraini",
+                      feedText:
+                          "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia",
+                      feedImage: "assets/images/feed-image-04.jpg",
                     ),
                   ],
                 ),
@@ -103,7 +111,98 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Container userStory() {
+  Container feedItem(
+      {String feedPhoto, String feedName, String feedText, String feedImage}) {
+    return Container(
+      color: whiteColor,
+      // Feed Profile
+      child: Column(
+        children: [
+          ListTile(
+            leading: Container(
+              height: 40.0,
+              decoration: BoxDecoration(
+                color: greyLight,
+                shape: BoxShape.circle,
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(40.0),
+                child: Image.asset(
+                  feedPhoto,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            title: Text(feedName,
+                style: h3.copyWith(
+                  fontWeight: FontWeight.w700,
+                )),
+            subtitle: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text("5 minutes", style: h4),
+                SizedBox(width: 3.0),
+                Text("."),
+                SizedBox(width: 3.0),
+                SvgPicture.asset(
+                  iconGlobe,
+                  width: 14.0,
+                  color: greyDark,
+                )
+              ],
+            ),
+            trailing: Column(
+              children: [
+                Icon(
+                  Icons.more_horiz,
+                ),
+              ],
+            ),
+          ),
+          // Feed Text
+          Padding(
+            padding: const EdgeInsets.only(
+              bottom: 8.0,
+              right: 16.0,
+              left: 16.0,
+            ),
+            child: Text(
+              feedText,
+              style: h3.copyWith(height: 1.3),
+              maxLines: 3,
+            ),
+          ),
+          // Feed Image
+          Image.asset(
+            feedImage,
+            fit: BoxFit.fill,
+          ),
+          SizedBox(height: 10.0)
+        ],
+      ),
+    );
+  }
+
+  Align underLineActive(BuildContext context) {
+    return Align(
+      alignment: Alignment.centerLeft,
+      child: Container(
+        width: MediaQuery.of(context).size.width / 5,
+        height: 5.0,
+        decoration: BoxDecoration(
+          border: Border(
+            bottom: BorderSide(
+              width: 3.0,
+              color: primaryColor,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Container userStory(
+      {String storyImage, String storyPhoto, String storyName}) {
     return Container(
       height: 200.0,
       child: AspectRatio(
@@ -113,7 +212,7 @@ class _HomePageState extends State<HomePage> {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             image: DecorationImage(
-              image: AssetImage("./assets/images/feed-image-01.jpg"),
+              image: AssetImage(storyImage),
               fit: BoxFit.cover,
             ),
           ),
@@ -140,14 +239,14 @@ class _HomePageState extends State<HomePage> {
                         width: 3.0,
                       ),
                       image: DecorationImage(
-                        image: AssetImage("./assets/images/profile_01.jpg"),
+                        image: AssetImage(storyPhoto),
                         fit: BoxFit.cover,
                       )),
                 ),
                 Container(
                   margin: EdgeInsets.only(bottom: 10.0, left: 10.0),
                   child: Text(
-                    "Siti Fatimah",
+                    storyName,
                     style: h4.copyWith(
                       color: whiteColor,
                     ),
@@ -204,7 +303,7 @@ class _HomePageState extends State<HomePage> {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(40.0),
                 child: Image.asset(
-                  "./assets/images/profile_01.jpg",
+                  "assets/images/profile_01.jpg",
                   fit: BoxFit.cover,
                 ),
               ),
