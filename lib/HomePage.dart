@@ -24,29 +24,78 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-            Column(
-              children: [
-                statusYourMind(),
-                Container(
-                  color: whiteColor,
-                  child: Column(
-                    children: [
-                      SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
-                          children: [
-                            userStory(),
-                            userStory(),
-                            userStory(),
-                            userStory(),
-                          ],
-                        ),
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    // status Your Mind
+                    statusYourMind(),
+
+                    // Stories
+                    Container(
+                      color: whiteColor,
+                      child: Column(
+                        children: [
+                          SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(
+                              children: [
+                                userStory(),
+                                userStory(),
+                                userStory(),
+                                userStory(),
+                              ],
+                            ),
+                          ),
+                          buttonMore(),
+                        ],
                       ),
-                      buttonMore(),
-                    ],
-                  ),
+                    ),
+                    Container(
+                      color: whiteColor,
+                      // Feed
+                      child: ListTile(
+                        leading: Container(
+                          height: 40.0,
+                          decoration: BoxDecoration(
+                            color: greyLight,
+                            shape: BoxShape.circle,
+                          ),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(40.0),
+                            child: Image.asset(
+                              "./assets/images/profile_01.jpg",
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                        title: Text("Siti Fatimah",
+                            style: h3.copyWith(
+                              fontWeight: FontWeight.w700,
+                            )),
+                        // subtitle: Row(
+                        //   mainAxisAlignment: MainAxisAlignment.start,
+                        //   children: [
+                        //     Text("5 minutes", style: h4),
+                        //     SizedBox(width: 3.0),
+                        //     Text("."),
+                        //     SizedBox(width: 3.0),
+                        //     SvgPicture.asset(
+                        //       iconGlobe,
+                        //       width: 14.0,
+                        //       color: greyDark,
+                        //     )
+                        //   ],
+                        // ),
+                        // trailing: Align(
+                        //   alignment: Alignment.topRight,
+                        //   child: Icon(Icons.more_horiz),
+                        // ),
+                      ),
+                    ),
+                  ],
                 ),
-              ],
+              ),
             ),
           ],
         ),
@@ -60,7 +109,7 @@ class _HomePageState extends State<HomePage> {
       child: AspectRatio(
         aspectRatio: 1.5 / 2,
         child: Container(
-          margin: EdgeInsets.only(right: 10),
+          margin: EdgeInsets.only(left: 8.0),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             image: DecorationImage(
@@ -87,8 +136,8 @@ class _HomePageState extends State<HomePage> {
                   decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       border: Border.all(
-                        color: whiteColor,
-                        width: 2.0,
+                        color: primaryColor,
+                        width: 3.0,
                       ),
                       image: DecorationImage(
                         image: AssetImage("./assets/images/profile_01.jpg"),

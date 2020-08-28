@@ -56,3 +56,5 @@ String iconVideo = "assets/icons/icon_video.svg";
 String iconAccount = "assets/icons/icon_account.svg";
 String iconNotification = "assets/icons/icon_notification.svg";
 String iconMenu = "assets/icons/icon_menu.svg";
+
+String iconGlobe = "assets/icons/icon_globe.svg";
