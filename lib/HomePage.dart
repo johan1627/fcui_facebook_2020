@@ -244,7 +244,43 @@ class _HomePageState extends State<HomePage> {
           ),
           // Feed Image
           Image.asset(feedImage, fit: BoxFit.fill),
-          SizedBox(height: 10.0)
+          SizedBox(height: 14.0),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              InkWell(
+                onTap: () {},
+                child: Row(
+                  children: [
+                    SvgPicture.asset(iconLike, width: 20.0),
+                    SizedBox(width: 6.0),
+                    Text("Like"),
+                  ],
+                ),
+              ),
+              InkWell(
+                onTap: () {},
+                child: Row(
+                  children: [
+                    SvgPicture.asset(iconComment, width: 20.0),
+                    SizedBox(width: 6.0),
+                    Text("Comment"),
+                  ],
+                ),
+              ),
+              InkWell(
+                onTap: () {},
+                child: Row(
+                  children: [
+                    SvgPicture.asset(iconShare, width: 20.0),
+                    SizedBox(width: 6.0),
+                    Text("Share"),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          SizedBox(height: 14.0),
         ],
       ),
     );

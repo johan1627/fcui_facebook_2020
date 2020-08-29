@@ -64,3 +64,7 @@ String iconGlobe = "assets/icons/icon_globe.svg";
 String iconLive = "assets/icons/image_live.svg";
 String iconPhoto = "assets/icons/image_photo.svg";
 String iconRoom = "assets/icons/image_room.svg";
+
+String iconLike = "assets/icons/icon_like.svg";
+String iconComment = "assets/icons/icon_comment.svg";
+String iconShare = "assets/icons/icon_share.svg";
