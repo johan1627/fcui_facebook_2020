@@ -43,7 +43,7 @@ TextStyle lableFont = TextStyle(
 
 TextStyle footFont = TextStyle(
   fontFamily: "Roboto",
-  fontSize: 10.0,
+  fontSize: 11.0,
 );
 
 // Icons
@@ -60,3 +60,7 @@ String iconNotification = "assets/icons/icon_notification.svg";
 String iconMenu = "assets/icons/icon_menu.svg";
 
 String iconGlobe = "assets/icons/icon_globe.svg";
+
+String iconLive = "assets/icons/image_live.svg";
+String iconPhoto = "assets/icons/image_photo.svg";
+String iconRoom = "assets/icons/image_room.svg";

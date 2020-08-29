@@ -31,6 +31,37 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     // status Your Mind
                     statusYourMind(),
+                    SizedBox(height: .5),
+                    // Icon Tap Posting
+                    Container(
+                      color: whiteColor,
+                      height: 40.0,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          iconTappost(text: "Live", icon: iconLive),
+                          iconTappost(text: "Photo", icon: iconPhoto),
+                          iconTappost(text: "Room", icon: iconRoom),
+                        ],
+                      ),
+                    ),
+                    SizedBox(height: 8.0),
+
+                    // Create Room
+                    Container(
+                      color: whiteColor,
+                      height: 50.0,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          photoProfile(photo: "assets/images/profile_01.jpg"),
+                          photoProfile(photo: "assets/images/profile_02.jpg"),
+                          photoProfile(photo: "assets/images/profile_03.jpg"),
+                          photoProfile(photo: "assets/images/profile_04.jpg"),
+                        ],
+                      ),
+                    ),
+                    SizedBox(height: 8.0),
 
                     // Stories
                     Container(
@@ -111,6 +142,25 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  Expanded iconTappost({String text, String icon}) {
+    return Expanded(
+      child: MaterialButton(
+        highlightElevation: 0,
+        onPressed: () {},
+        color: whiteColor,
+        elevation: 0,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SvgPicture.asset(icon, width: 14.0),
+            SizedBox(width: 5.0),
+            Text(text, style: footFont),
+          ],
+        ),
+      ),
+    );
+  }
+
   Container feedItem(
       {String feedPhoto, String feedName, String feedText, String feedImage}) {
     return Container(
@@ -127,16 +177,11 @@ class _HomePageState extends State<HomePage> {
               ),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(40.0),
-                child: Image.asset(
-                  feedPhoto,
-                  fit: BoxFit.cover,
-                ),
+                child: Image.asset(feedPhoto, fit: BoxFit.cover),
               ),
             ),
-            title: Text(feedName,
-                style: h3.copyWith(
-                  fontWeight: FontWeight.w700,
-                )),
+            title:
+                Text(feedName, style: h3.copyWith(fontWeight: FontWeight.w700)),
             subtitle: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -153,19 +198,14 @@ class _HomePageState extends State<HomePage> {
             ),
             trailing: Column(
               children: [
-                Icon(
-                  Icons.more_horiz,
-                ),
+                Icon(Icons.more_horiz),
               ],
             ),
           ),
           // Feed Text
           Padding(
-            padding: const EdgeInsets.only(
-              bottom: 8.0,
-              right: 16.0,
-              left: 16.0,
-            ),
+            padding:
+                const EdgeInsets.only(bottom: 8.0, right: 16.0, left: 16.0),
             child: Text(
               feedText,
               style: h3.copyWith(height: 1.3),
@@ -173,10 +213,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           // Feed Image
-          Image.asset(
-            feedImage,
-            fit: BoxFit.fill,
-          ),
+          Image.asset(feedImage, fit: BoxFit.fill),
           SizedBox(height: 10.0)
         ],
       ),
@@ -191,10 +228,7 @@ class _HomePageState extends State<HomePage> {
         height: 5.0,
         decoration: BoxDecoration(
           border: Border(
-            bottom: BorderSide(
-              width: 3.0,
-              color: primaryColor,
-            ),
+            bottom: BorderSide(width: 3.0, color: primaryColor),
           ),
         ),
       ),
@@ -204,11 +238,11 @@ class _HomePageState extends State<HomePage> {
   Container userStory(
       {String storyImage, String storyPhoto, String storyName}) {
     return Container(
-      height: 200.0,
+      height: 210.0,
       child: AspectRatio(
-        aspectRatio: 1.5 / 2,
+        aspectRatio: 1.3 / 2,
         child: Container(
-          margin: EdgeInsets.only(left: 8.0),
+          margin: EdgeInsets.only(left: 8.0, top: 8.0),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             image: DecorationImage(
@@ -234,10 +268,7 @@ class _HomePageState extends State<HomePage> {
                   width: 40,
                   decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      border: Border.all(
-                        color: primaryColor,
-                        width: 3.0,
-                      ),
+                      border: Border.all(color: primaryColor, width: 3.0),
                       image: DecorationImage(
                         image: AssetImage(storyPhoto),
                         fit: BoxFit.cover,
@@ -245,12 +276,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 Container(
                   margin: EdgeInsets.only(bottom: 10.0, left: 10.0),
-                  child: Text(
-                    storyName,
-                    style: h4.copyWith(
-                      color: whiteColor,
-                    ),
-                  ),
+                  child: Text(storyName, style: h4.copyWith(color: whiteColor)),
                 )
               ],
             ),
@@ -273,12 +299,7 @@ class _HomePageState extends State<HomePage> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(6.0),
               ),
-              child: Text(
-                "Show More",
-                style: h3.copyWith(
-                  color: blueDark,
-                ),
-              ),
+              child: Text("Show More", style: h3.copyWith(color: blueDark)),
             ),
           ),
         ),
@@ -294,37 +315,40 @@ class _HomePageState extends State<HomePage> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Container(
-              height: 40.0,
-              decoration: BoxDecoration(
-                color: greyLight,
-                shape: BoxShape.circle,
-              ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(40.0),
-                child: Image.asset(
-                  "assets/images/profile_01.jpg",
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
+            photoProfile(photo: "assets/images/profile_01.jpg"),
             SizedBox(width: 10.0),
             Expanded(
               child: OutlineButton(
+                highlightedBorderColor: greyDark,
+                highlightColor: greyLight,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30.0)),
                 color: whiteColor,
                 onPressed: () {},
                 child: Align(
                   alignment: Alignment.centerLeft,
-                  child: Text(
-                    "What's on your mind?",
-                    style: h4,
-                  ),
+                  child: Text("What's on your mind?", style: h4),
                 ),
               ),
             )
           ],
+        ),
+      ),
+    );
+  }
+
+  Container photoProfile({String photo}) {
+    return Container(
+      height: 40.0,
+      decoration: BoxDecoration(
+        color: greyLight,
+        shape: BoxShape.circle,
+      ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(40.0),
+        child: Image.asset(
+          photo,
+          fit: BoxFit.cover,
         ),
       ),
     );
@@ -403,10 +427,7 @@ class _HomePageState extends State<HomePage> {
         ),
         child: Padding(
           padding: const EdgeInsets.all(6.0),
-          child: SvgPicture.asset(
-            iconCus,
-            width: 20.0,
-          ),
+          child: SvgPicture.asset(iconCus, width: 20.0),
         ),
       ),
     );
