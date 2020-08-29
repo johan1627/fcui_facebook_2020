@@ -50,15 +50,45 @@ class _HomePageState extends State<HomePage> {
                     // Create Room
                     Container(
                       color: whiteColor,
-                      height: 50.0,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          photoProfile(photo: "assets/images/profile_01.jpg"),
-                          photoProfile(photo: "assets/images/profile_02.jpg"),
-                          photoProfile(photo: "assets/images/profile_03.jpg"),
-                          photoProfile(photo: "assets/images/profile_04.jpg"),
-                        ],
+                      width: double.infinity,
+                      height: 60.0,
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          children: [
+                            SizedBox(width: 10.0),
+                            MaterialButton(
+                              onPressed: () {},
+                              elevation: 0.0,
+                              height: 44.0,
+                              shape: RoundedRectangleBorder(
+                                  side: BorderSide(color: blueDark, width: .5),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(20.0))),
+                              child: Row(
+                                children: [
+                                  SizedBox(width: 4.0),
+                                  SvgPicture.asset(iconRoom, width: 24.0),
+                                  SizedBox(width: 8.0),
+                                  Container(
+                                    width: 40.0,
+                                    child: Text("Create Room",
+                                        style: lableFont.copyWith(
+                                            color: primaryColor)),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            photoProfile(photo: "assets/images/profile_01.jpg"),
+                            photoProfile(photo: "assets/images/profile_02.jpg"),
+                            photoProfile(photo: "assets/images/profile_03.jpg"),
+                            photoProfile(photo: "assets/images/profile_04.jpg"),
+                            photoProfile(photo: "assets/images/profile_04.jpg"),
+                            photoProfile(photo: "assets/images/profile_04.jpg"),
+                            photoProfile(photo: "assets/images/profile_04.jpg"),
+                            photoProfile(photo: "assets/images/profile_04.jpg"),
+                          ],
+                        ),
                       ),
                     ),
                     SizedBox(height: 8.0),
@@ -315,7 +345,7 @@ class _HomePageState extends State<HomePage> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            photoProfile(photo: "assets/images/profile_01.jpg"),
+            photoProfileMain(photo: "assets/images/profile_01.jpg"),
             SizedBox(width: 10.0),
             Expanded(
               child: OutlineButton(
@@ -337,7 +367,41 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Container photoProfile({String photo}) {
+  Padding photoProfile({String photo}) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 10.0),
+      child: Stack(
+        alignment: Alignment.bottomRight,
+        children: <Widget>[
+          Container(
+            height: 40.0,
+            decoration: BoxDecoration(
+              color: greyLight,
+              shape: BoxShape.circle,
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(40.0),
+              child: Image.asset(
+                photo,
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          Container(
+            height: 14.0,
+            width: 14.0,
+            decoration: BoxDecoration(
+              border: Border.all(color: whiteColor, width: 2.0),
+              color: greenColor,
+              shape: BoxShape.circle,
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  Container photoProfileMain({String photo}) {
     return Container(
       height: 40.0,
       decoration: BoxDecoration(
